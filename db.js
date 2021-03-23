@@ -1,12 +1,8 @@
 const Sequelize = require('sequelize')
 
-const db = new Sequelize('sampledb2' , 'myuser2' ,'mnbvcxZ1!',{
-    host:'localhost',
+const db = new Sequelize({
     dialect:'mysql',
-    pool:{
-        min:0,
-        max:5
-    }
+    storage: __dirname + './test.db'
 })
 
  // User is a class and users is name of table 
