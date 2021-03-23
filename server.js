@@ -3,6 +3,8 @@ const app = express();
 const route = express.Router();
 const path = require('path');
 
+const PORT = process.env.PORT || 3000
+
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
@@ -55,4 +57,4 @@ app.post('/create'  , async (req,res)=>{
 } );
 
 
-app.listen(3000 , ()=> console.log('running at https://localhost:3000'))
+app.listen(PORT , ()=> console.log('running at https://localhost:3000'))
