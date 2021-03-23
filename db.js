@@ -6,7 +6,7 @@ const db = new Sequelize({
 })
 
  // User is a class and users is name of table 
-const User = db.define('users', {
+const User = db.define('user', {
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,
@@ -19,11 +19,6 @@ const User = db.define('users', {
 })
 
 
-db.sync()
-    .then(()=>{
-        console.log('Database created succesfully');
-    })
-    .catch(()=> console.log('Error could not create a database'))
 
 exports = module.exports ={
     User

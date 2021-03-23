@@ -22,7 +22,7 @@ app.get('/' , (req,res)=>{
 
 
 app.get('/create'  ,  (req,res)=>{
-    console.log('showgin all users');
+    // console.log('showgin all users');
     res.render('userC')
 } );
 
@@ -48,13 +48,16 @@ app.post('/user'  , async (req,res)=>{
 
 app.post('/create'  , async (req,res)=>{
         const {name} = req.body;
-        console.log('-----------------------name : ' , name , '--------------------');
+        // console.log('-----------------------name : ' , name , '--------------------');
         await User.create({
             name
         })
 
     res.redirect('/')
 } );
+db.sync({alert:true})
+    .then(()=>{
 
-
-app.listen(PORT , ()=> console.log('running at https://localhost:3000'))
+        app.listen(PORT , ()=> console.log('running at https://localhost:3000'))
+        // console.log('Database created succesfully');
+    })
